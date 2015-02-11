@@ -2,8 +2,6 @@
 
 source "$(dirname $0)/../dokku_common"
 
-sudo pip install -U git+git://github.com/till/avahi-aliases.git@topics/make-it-run
-
 HOSTNAME=$(< "$DOKKU_ROOT/HOSTNAME")
 
 cat << EOF > /etc/avahi/services/dokku.service
