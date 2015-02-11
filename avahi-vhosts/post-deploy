@@ -1,0 +1,11 @@
+#!/usr/bin/env bash
+
+source "$(dirname $0)/vars"
+
+APP="$1"; PORT="$2"; INT_PORT="$3"; IP="${4:-127.0.0.1}"
+hostnames_for_app "$APP"
+
+cat << EOF > /etc/avahi/aliases.d/$hostname
+$hostname
+EOF
+sudo /sbin/restart avahi-aliases > /dev/null

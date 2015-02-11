@@ -1,0 +1,27 @@
+#!/usr/bin/env bash
+
+source "$(dirname $0)/../dokku_common"
+
+apt-get -y install avahi-daemon python-avahi python-pip
+sudo pip install -U git+git://github.com/till/avahi-aliases.git@topics/make-it-run
+
+HOSTNAME=$(< "$DOKKU_ROOT/HOSTNAME")
+
+cat << EOF > /etc/avahi/services/dokku.service
+<service-group>
+  <name>$HOSTNAME</name>
+  <service>
+    <type>_ssh._tcp</type>
+    <port>22</port>
+  </service>
+</service-group>
+EOF
+
+cat << EOF > /etc/sudoers.d/dokku-avahi-aliases
+# dokku-avahi-restart
+%dokku ALL=(ALL)NOPASSWD:/sbin/restart avahi-aliases
+EOF
+
+chown -R dokku /etc/avahi/aliases.d
+
+/sbin/restart avahi-daemon
