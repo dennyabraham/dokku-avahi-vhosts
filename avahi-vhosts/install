@@ -2,7 +2,6 @@
 
 source "$(dirname $0)/../dokku_common"
 
-apt-get -y install avahi-daemon python-avahi python-pip
 sudo pip install -U git+git://github.com/till/avahi-aliases.git@topics/make-it-run
 
 HOSTNAME=$(< "$DOKKU_ROOT/HOSTNAME")
