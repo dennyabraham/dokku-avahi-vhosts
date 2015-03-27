@@ -1,7 +1,12 @@
 #!/usr/bin/env bash
 
 source "$(dirname $0)/vars"
+
 APP="$1"; PORT="$2"; INT_PORT="$3"; IP="${4:-127.0.0.1}"
 hostnames_for_app "$APP"
+
+dokku_log_info1 "Deleting avahi alias ${hostname} for ${APP}"
 rm -f /etc/avahi/aliases.d/$hostname >> /dev/null
+
+echo "        Restarting avahi-aliases"
 sudo /sbin/restart avahi-aliases > /dev/null

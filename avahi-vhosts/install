@@ -4,6 +4,8 @@ source "$(dirname $0)/vars"
 
 HOSTNAME=$(< "$DOKKU_ROOT/HOSTNAME")
 
+dokku_log_info1 "Installing avahi alias for domain ${HOSTNAME}"
+
 cat << EOF > /etc/avahi/services/dokku.service
 <service-group>
   <name>$HOSTNAME</name>
