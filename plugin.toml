@@ -1,0 +1,4 @@
+[plugin]
+description = "dokku plugin to automatically advertise or remove mdns names via avahi"
+version = "0.1.0"
+[plugin.config]
