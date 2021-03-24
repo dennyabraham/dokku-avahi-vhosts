@@ -7,9 +7,7 @@ hostnames_for_app "$APP"
 
 dokku_log_info1 "Creating avahi alias ${hostname} for ${APP}"
 echo "        ${IP}:${PORT} ${INT_PORT}"
-cat << EOF > /etc/avahi/aliases.d/$hostname
-$hostname
-EOF
+avahi-add-alias $hostname
 
 echo "        Restarting avahi-aliases"
 /etc/init.d/avahi-daemon restart > /dev/null
