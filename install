@@ -21,7 +21,7 @@ cat << EOF > /etc/sudoers.d/dokku-avahi-aliases
 %dokku ALL=(ALL)NOPASSWD:/sbin/restart avahi-aliases
 EOF
 
-mkdir /etc/avahi/aliases.d
+mkdir -p /etc/avahi/aliases.d
 chown -R dokku /etc/avahi/aliases.d
 
 /etc/init.d/avahi-daemon restart
