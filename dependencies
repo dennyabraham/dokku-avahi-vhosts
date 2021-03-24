@@ -1,7 +1,6 @@
 #!/bin/bash
 
-apt-get -y install avahi-daemon python3-avahi python3-pip
 cd /tmp
-git clone https://github.com/piku/avahi-aliases.git
+git clone https://github.com/dennyabraham/avahi-aliases.git
 cd avahi-aliases
 make install
