@@ -12,4 +12,4 @@ $hostname
 EOF
 
 echo "        Restarting avahi-aliases"
-sudo /sbin/restart avahi-aliases > /dev/null
+/etc/init.d/avahi-daemon restart > /dev/null

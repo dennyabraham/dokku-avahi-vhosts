@@ -9,4 +9,4 @@ dokku_log_info1 "Deleting avahi alias ${hostname} for ${APP}"
 rm -f /etc/avahi/aliases.d/$hostname >> /dev/null
 
 echo "        Restarting avahi-aliases"
-sudo /sbin/restart avahi-aliases > /dev/null
+/etc/init.d/avahi-daemon restart > /dev/null

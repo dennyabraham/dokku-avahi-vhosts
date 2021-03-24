@@ -24,4 +24,4 @@ EOF
 mkdir /etc/avahi/aliases.d
 chown -R dokku /etc/avahi/aliases.d
 
-/sbin/restart avahi-daemon
+/etc/init.d/avahi-daemon restart
