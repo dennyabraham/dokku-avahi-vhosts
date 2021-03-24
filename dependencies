@@ -1,4 +1,4 @@
 #!/bin/bash
 
-apt-get -y install avahi-daemon python-avahi python-pip
+apt-get -y install avahi-daemon python3-avahi python3-pip
 sudo pip install -U git+git://github.com/till/avahi-aliases.git@topics/make-it-run
